@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Image Restorer</title>
+    <link rel="stylesheet" href="index.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@^0.15.0"
+        }
+      }
+    </script>
+    <script type="module" src="index.tsx"></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>AI Image Restorer</h1>
+        <p>Upload a damaged or low-quality image to restore it with AI.</p>
+      </header>
+      <div class="panels">
+        <section class="panel" aria-labelledby="original-heading">
+          <h2 id="original-heading">Original Image</h2>
+          <div id="original-image-container" class="image-container" aria-live="polite">
+            <p class="placeholder">Upload an image to get started</p>
+          </div>
+        </section>
+        <section class="panel" aria-labelledby="restored-heading">
+          <h2 id="restored-heading">Restored Image</h2>
+          <div id="restored-image-container" class="image-container" aria-live="polite" aria-busy="false">
+            <div class="loader" hidden></div>
+            <p class="placeholder">Ready to restore</p>
+          </div>
+        </section>
+      </div>
+      <div class="controls-container">
+        <div class="controls">
+          <label for="file-upload" class="button">
+            Upload Image
+          </label>
+          <input type="file" id="file-upload" accept="image/*" />
+          <input type="text" id="prompt-input" placeholder="Optional: describe edits (e.g., make it vintage)" aria-label="Image editing prompt"/>
+          <button id="restore-button" disabled>Restore & Edit</button>
+        </div>
+        <div class="sharpen-control">
+          <label for="sharpen-slider">Sharpening:</label>
+          <input type="range" id="sharpen-slider" min="0" max="100" value="50" aria-label="Sharpening amount">
+          <span id="sharpen-value">50</span>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

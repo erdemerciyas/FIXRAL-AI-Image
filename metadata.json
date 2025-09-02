@@ -1,0 +1,5 @@
+{
+  "name": "AI Image Restorer",
+  "description": "Upload a damaged or low-quality image and use AI to restore and enhance it.",
+  "requestFramePermissions": []
+}
